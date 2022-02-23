@@ -15,3 +15,19 @@ A simple level based logging library for go built to work with the docker `journ
 - `log.Error` and `log.Errorf` have the behaviour of default logging and log to stderr. This is interpreted as level 3 (error) in `journalctl`.
 - This causes messasges to appear in red.
 - `journalctl -p 3..3 CONTAINER_ID=<ID>` to filter for only error logs.
+
+## Usage Example
+
+```go
+import (
+    log github.com/cycloss/doggo
+)
+
+func main() {
+    log.init() // essential to initialise the loggers
+    log.Print("this is a notice")
+    log.Error("this is an error")
+    log.Fatal("this is a fatal error")
+}
+
+```

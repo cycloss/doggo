@@ -48,3 +48,19 @@ func Error(v ...interface{}) {
 func Errorf(format string, v ...interface{}) {
 	errorLogger.Printf(format, v...)
 }
+
+// Logs to stderr which is interpreted as level 3 priority
+// in `journald` when the `journald` logging driver is used.
+// Appears in red in `journalctl`.
+// Included for backward compatibility.
+func Fatal(v ...interface{}) {
+	log.Fatal(v...)
+}
+
+// Logs to stderr which is interpreted as level 3 priority
+// in `journald` when the `journald` logging driver is used.
+// Appears in red in `journalctl`.
+// Included for backward compatibility.
+func Fatalf(format string, v ...interface{}) {
+	log.Fatalf(format, v...)
+}
