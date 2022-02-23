@@ -4,6 +4,8 @@ Docker logging go.
 
 A simple level based logging library for go built to work with the docker `journald` logging driver so that logs can be easily filtered by priority.
 
+Install with `go get github.com/cycloss/doggo`
+
 ## log.Print
 
 - `log.Print` and `log.Printf` will now log to stdout, allowing them to be interpreted as priority level 6 (notice) in `journalctl`.
