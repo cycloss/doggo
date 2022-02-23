@@ -21,12 +21,14 @@ Install with `go get github.com/cycloss/doggo`
 ## Usage Example
 
 ```go
+package main
+
 import (
-    log github.com/cycloss/doggo
+    log "github.com/cycloss/doggo"
 )
 
 func main() {
-    log.init() // essential to initialise the loggers
+    log.Init() // essential to initialise the loggers
     log.Print("this is a notice")
     log.Error("this is an error")
     log.Fatal("this is a fatal error")
