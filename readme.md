@@ -33,5 +33,9 @@ func main() {
     log.Error("this is an error")
     log.Fatal("this is a fatal error")
 }
-
 ```
+
+## Usage Notes
+
+- Timestamps are removed from logs as docker will generate them anyway.
+- `log.Error` and `log.Fatal` however include line numbers.

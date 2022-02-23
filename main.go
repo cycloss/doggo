@@ -11,8 +11,8 @@ var (
 )
 
 const (
-	errorFlags = log.Ldate | log.Ltime | log.Lshortfile
-	infoFlags  = log.LstdFlags
+	errorFlags = log.Lshortfile
+	infoFlags  = 0
 )
 
 // Must be called before using any of the logging functions.
@@ -37,6 +37,7 @@ func Printf(format string, v ...interface{}) {
 
 // Logs to stderr which is interpreted as level 3 priority
 // in `journald` when the `journald` logging driver is used.
+// Also includes file name and line number.
 // Appears in red in `journalctl`.
 func Error(v ...interface{}) {
 	errorLogger.Print(v...)
@@ -44,6 +45,7 @@ func Error(v ...interface{}) {
 
 // Logs to stderr which is interpreted as level 3 priority
 // in `journald` when the `journald` logging driver is used.
+// Also includes file name and line number.
 // Appears in red in `journalctl`.
 func Errorf(format string, v ...interface{}) {
 	errorLogger.Printf(format, v...)
@@ -52,15 +54,19 @@ func Errorf(format string, v ...interface{}) {
 // Logs to stderr which is interpreted as level 3 priority
 // in `journald` when the `journald` logging driver is used.
 // Appears in red in `journalctl`.
+// Also includes file name and line number.
 // Included for backward compatibility.
 func Fatal(v ...interface{}) {
+	log.SetFlags(errorFlags)
 	log.Fatal(v...)
 }
 
 // Logs to stderr which is interpreted as level 3 priority
 // in `journald` when the `journald` logging driver is used.
 // Appears in red in `journalctl`.
+// Also includes file name and line number.
 // Included for backward compatibility.
 func Fatalf(format string, v ...interface{}) {
+	log.SetFlags(errorFlags)
 	log.Fatalf(format, v...)
 }
