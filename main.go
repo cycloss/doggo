@@ -11,8 +11,8 @@ var (
 )
 
 const (
-	errorFlags = log.Lshortfile
-	infoFlags  = 0
+	errorFlags = log.LstdFlags | log.Lshortfile
+	infoFlags  = log.LstdFlags
 )
 
 // Must be called before using any of the logging functions.
